@@ -1,12 +1,18 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, {useState, useContext} from 'react';
+import { View, Text, StyleSheet, TextInput, Button, TouchableOpacity } from 'react-native';
+import { Feather } from '@expo/vector-icons';
+import {Context} from "../context/StockContext";
 
-const ShowStock = (props) => {
-  return (
-      <View>
-          <Text>Show Stock</Text>
-      </View>
-  );
+const ShowStock = ({ navigation }) => {
+
+    const [showShares, setShowShares] = useState(false);
+    const [sharesAmount, setSharesAmount] = useState('');
+
+    return (
+        <View>
+
+        </View>
+    );
 };
 
 export default ShowStock;

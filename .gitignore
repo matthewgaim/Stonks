@@ -8,8 +8,9 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
-src/api/security.js
+./src/api/security.js
 
 # macOS
 .DS_Store
-src/api/security.js
+./src/api/security.js
+server/src/secret.js

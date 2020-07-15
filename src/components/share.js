@@ -1,27 +1,28 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
-const Share = ({ ticker, price, change, shares  }) => {
-    change = parseFloat(change.replace('%',''));
+const Share = ({ ticker, price, change, shares, onClick  }) => {
     price = parseFloat(price);
 
     return (
-        <View style={styles.bar}>
-            <View>
-                <Text style={styles.ticker}>${ticker}</Text>
-                <Text>{shares} shares</Text>
+        <TouchableOpacity onPress={onClick}>
+            <View style={styles.bar}>
+                    <View>
+                        <Text style={styles.ticker}>${ticker}</Text>
+                        <Text>{shares} shares</Text>
+                    </View>
+                    <Text>{change}%</Text>
+                    { change >= 0 ?
+                        <Feather name="arrow-up-right" size={25} color="green"/>
+                        :
+                        <Feather name="arrow-down-right" size={25} color="red" />
+                    }
+                    <View style={{ backgroundColor:  change >= 0 ? 'green' : 'red', padding: 10, borderRadius: 10, alignItems: 'center'}}>
+                        <Text style={styles.price}>${price}</Text>
+                    </View>
             </View>
-            <Text>{change}%</Text>
-            { change >= 0 ?
-                <Feather name="arrow-up-right" size={25} color="green"/>
-                :
-                <Feather name="arrow-down-right" size={25} color="red" />
-            }
-            <View style={{ backgroundColor:  change >= 0 ? 'green' : 'red', padding: 10, borderRadius: 10, alignItems: 'center'}}>
-                <Text style={styles.price}>${price}</Text>
-            </View>
-        </View>
+        </TouchableOpacity>
     );
 };
 
